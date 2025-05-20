@@ -18,7 +18,7 @@ using namespace std;
 
             if c is ) and top != (:
                 return false
-            ... also for orthers cases
+            ... also for others cases
 
 
     return stk.isEmpty()
