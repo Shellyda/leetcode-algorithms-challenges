@@ -4,19 +4,19 @@ using std::vector;
 
 int binarySearch(vector<int> arr, int target)
 {
-    int L = 0, R = arr.size();
+    int l = 0, r = arr.size() - 1;
 
-    while (L <= R)
+    while (l <= r)
     {
-        int mid = (L + R) / 2;
+        int mid = l + ((r - l) / 2);
 
         if (target > arr[mid])
         {
-            L = mid + 1;
+            l = mid + 1;
         }
         else if (target < arr[mid])
         {
-            R = mid - 1;
+            r = mid - 1;
         }
         else
         {
