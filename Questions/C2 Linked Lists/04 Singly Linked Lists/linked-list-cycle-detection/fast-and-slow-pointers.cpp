@@ -12,6 +12,8 @@ struct ListNode
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
 
+// Way better using always O(n) time
+
 class Solution
 {
 public:
