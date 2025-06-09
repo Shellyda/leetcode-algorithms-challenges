@@ -51,8 +51,8 @@ public:
                 return root->left;
             }
             else
-            { // case 0 - The target node has two children
-                TreeNode *min = findMin(root->right);
+            {                                         // case 0 - The target node has two children
+                TreeNode *min = findMin(root->right); // can choose left or right here
                 root->val = min->val;
                 root->right = deleteNode(root->right, min->val);
             }
