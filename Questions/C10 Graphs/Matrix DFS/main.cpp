@@ -13,7 +13,7 @@ public:
         int cols = grid[0].size();
 
         // special case -> begin and end are rocks
-        if (grid[0][0] == 1 || grid[rows - 1][cols - 1] == 1)
+        if (grid[0][0] || grid[rows - 1][cols - 1])
             return 0;
 
         vector<vector<bool>> visited(rows, vector<bool>(cols, false));
