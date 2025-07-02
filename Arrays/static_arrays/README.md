@@ -1,4 +1,4 @@
-# Static Arrays
+# static_arrays
 
 ## Problems
 
