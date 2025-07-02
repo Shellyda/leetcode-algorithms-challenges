@@ -1,7 +1,5 @@
 #include <vector>
 #include <algorithm>
-
-using std::min;
 using std::vector;
 
 // Count paths (backtracking)
