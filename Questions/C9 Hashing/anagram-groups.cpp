@@ -12,7 +12,7 @@ public:
 
         for (const auto &s : strs)
         {                             // ['nat', 'tat']
-            vector<int> count(26, 0); // a...z
+            vector<int> count(26, 0); // [0,0,...0] -> a...z
 
             for (char c : s)
             { // map 'a' to index 0, map 'b' to index 1.... map 'z' to index 26
@@ -32,13 +32,14 @@ public:
             for (int i = 1; i < 26; ++i)
             {
                 key += ',' + to_string(count[i]);
-                // 1
-                // 1, 0, 1
-                // 1, 0, 1, 0
+                // counting char which happen to be in string
+                // 1 -> 1xa
+                // 1, 0, 1 -> 1xa, 0xb, 1xc
+                // 1, 0, 1, 0 ...
                 //...
             }
 
-            hashMap[key].push_back(s);
+            hashMap[key].push_back(s); // -> key = "1,0,1,0,2" -> push `acee`
         }
 
         vector<vector<string>> res;
