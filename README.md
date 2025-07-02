@@ -2,7 +2,7 @@
 
 ## Topics
 
-- [Arrays](./Arrays)
+- [arrays](./arrays)
 - [Questions](./Questions)
 
 ## 📊 Difficulty Breakdown
