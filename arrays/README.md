@@ -1,5 +1,5 @@
-# arrays
+# Arrays
 
 ## Subtopics
 
-- [static-arrays](./static-arrays)
+- [static_arrays](./static_arrays)
