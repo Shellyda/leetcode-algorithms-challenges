@@ -18,10 +18,10 @@ It is structured in a way that makes it easy to review, revisit, and expand my p
 Organized by topic (e.g., `arrays`, `graph`, `dp`). Each problem is in a numbered folder with a slug:
 
 ```
-📁 `arrays/`
-  ├── `001_two_sum/`
-  │   ├── `solution.cpp`
-  │   └── `README.md`
+📁 arrays/
+  ├── 001_two_sum/
+  │   ├── solution.cpp
+  │   └── README.md
 ```
 
 ## How to Add a New Problem
