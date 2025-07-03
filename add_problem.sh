@@ -65,18 +65,17 @@ update_root_readme() {
     {
         echo "# Leetcode Study Vault"
         echo
+        echo "This repository was created as a way to deepen understanding of **algorithms** and **data structures** by solving problems from Leetcode."
+        echo "Each solution is documented to serve as both a **reference** and a **personal learning log**."
+        echo
+        echo "It is structured in a way that makes it easy to review, revisit, and expand my problem-solving knowledge over time."
+        echo
         echo "## Topics"
         echo
         for topic_path in "${sorted[@]}"; do
             topic_name=$(basename "$topic_path")
             echo "- [$topic_name](./$topic_name)"
         done
-        echo
-        echo "## Purpose"
-        echo "This repository was created as a way to deepen understanding of **algorithms** and **data structures** by solving problems from Leetcode."
-        echo "Each solution is documented to serve as both a **reference** and a **personal learning log**."
-        echo
-        echo "It is structured in a way that makes it easy to review, revisit, and expand my problem-solving knowledge over time."
         echo
         echo "## Repository Structure"
         echo
@@ -113,40 +112,6 @@ update_root_readme() {
         echo "And updates all README files automatically."
         echo
     } > README.md
-
-    # Count problems by difficulty
-    for topic_path in "${sorted[@]}"; do
-        while IFS= read -r -d $'\0' problem_dir; do
-            [[ -d "$problem_dir" ]] || continue
-            difficulty="unknown"
-            if [[ -f "$problem_dir/README.md" ]]; then
-                line=$(grep -i 'Difficulty:' "$problem_dir/README.md" | head -1)
-                if [[ $line =~ Easy ]]; then
-                    difficulty="easy"
-                elif [[ $line =~ Medium ]]; then
-                    difficulty="medium"
-                elif [[ $line =~ Hard ]]; then
-                    difficulty="hard"
-                fi
-            fi
-            ((stats[$difficulty]++))
-        done < <(find "$topic_path" -maxdepth 1 -mindepth 1 -type d -regex '.*/[0-9]{3}_.+' -print0)
-    done
-
-    local total=$((stats["easy"] + stats["medium"] + stats["hard"] + stats["unknown"]))
-
-    # Append Difficulty Breakdown
-    {
-        echo "## 📊 Difficulty Breakdown"
-        echo
-        echo "| Difficulty | Count |"
-        echo "|------------|-------|"
-        echo "| 🟢 Easy    | ${stats["easy"]} |"
-        echo "| 🟡 Medium  | ${stats["medium"]} |"
-        echo "| 🔴 Hard    | ${stats["hard"]} |"
-        echo "| ❔ Unknown | ${stats["unknown"]} |"
-        echo "| **Total**  | $total |"
-    } >> README.md
 }
 
 # ---------------- Main ----------------
