@@ -83,10 +83,10 @@ update_root_readme() {
         echo "Organized by topic (e.g., \`arrays\`, \`graph\`, \`dp\`). Each problem is in a numbered folder with a slug:"
         echo 
         echo  '```'
-        echo "📁 \`arrays/\`"
-        echo "  ├── \`001_two_sum/\`"
-        echo "  │   ├── \`solution.cpp\`"
-        echo "  │   └── \`README.md\`"
+        echo "📁 arrays/"
+        echo "  ├── 001_two_sum/"
+        echo "  │   ├── solution.cpp"
+        echo "  │   └── README.md"
         echo '```'
         echo
         echo "## How to Add a New Problem"
