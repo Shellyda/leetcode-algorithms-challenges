@@ -5,12 +5,25 @@
 
 ## 💡 Approach
 
+- Loop to all string characters and use a counter to get the score
+- Watch out to don't go out of bounds
+
 ## 🕒 Time and Space Complexity
-- Time: 
-- Space: 
+
+- Time: O(n)
+- Space: O(1)
 
 ## ✅ Solution
 
 ```cpp
-// your code here
+int scoreOfString(string s)
+    {
+        int res = 0;
+        for (int i = 0; i + 1 < s.size(); i++)
+        {
+            res += abs(s[i] - s[i + 1]);
+        }
+
+        return res;
+    }
 ```

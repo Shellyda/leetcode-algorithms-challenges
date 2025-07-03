@@ -27,7 +27,7 @@ update_category_readme() {
 
     for dir in $(ls -1 "$category_path" | grep -E '^[0-9]{3}_.+' | sort); do
         display_name=$(echo "$dir" | sed -E 's/^[0-9]{3}_//' | tr '_' ' ')
-        display_name="$(tr '[:lower:]' '[:upper:]' <<< ${display_name:0:1})${display_name:1}"
+        display_name="$(echo "$display_name" | awk '{ print toupper(substr($0,1,1)) tolower(substr($0,2)) }')"
         echo "- [$display_name](./$dir)" >> "$category_path/README.md"
     done
 }
@@ -50,26 +50,23 @@ update_root_readme() {
     local rootPath="$(pwd)"
     local topics=()
 
-    # Collect valid directories (exclude "build", hidden dirs, and dirs starting with 3-digit prefix)
     while IFS= read -r -d $'\0' dir; do
-        name=$(basename "$dir")
-        topics+=("$name")
+        topics+=("$dir")
     done < <(find "$rootPath" -maxdepth 1 -mindepth 1 -type d ! -name "build" ! -name ".*" ! -regex '.*/[0-9]{3}_.*' -print0)
 
-    # Sort the topics array
-    IFS=$'\n' sorted=($(sort <<<"${topics[*]}"))
+    IFS=$'\n' sorted=($(printf "%s\n" "${topics[@]}" | sort))
     unset IFS
 
-    # Initialize difficulty counters
     declare -A stats=( ["easy"]=0 ["medium"]=0 ["hard"]=0 ["unknown"]=0 )
 
-    # Count problems by difficulty inside each topic
-    for topic in "${sorted[@]}"; do
-        for problem_dir in "$rootPath/$topic"/[0-9][0-9][0-9]_*/; do
+    for topic_path in "${sorted[@]}"; do
+        topic_name=$(basename "$topic_path")
+
+        while IFS= read -r -d $'\0' problem_dir; do
             [[ -d "$problem_dir" ]] || continue
+
             difficulty="unknown"
             if [[ -f "$problem_dir/README.md" ]]; then
-                # Search for line containing "Difficulty:" in problem README
                 line=$(grep -i 'Difficulty:' "$problem_dir/README.md" | head -1)
                 if [[ $line =~ Easy ]]; then
                     difficulty="easy"
@@ -79,22 +76,53 @@ update_root_readme() {
                     difficulty="hard"
                 fi
             fi
+
             ((stats[$difficulty]++))
-        done
+        done < <(find "$topic_path" -maxdepth 1 -mindepth 1 -type d -regex '.*/[0-9]{3}_.+' -print0)
     done
 
     local total=$((stats["easy"] + stats["medium"] + stats["hard"] + stats["unknown"]))
 
-    # Write the root README.md
     {
         echo "# Leetcode Study Vault"
         echo
-        echo "## Topics"
+        echo "## Purpose"
+        echo "This repository was created as a way to deepen understanding of **algorithms** and **data structures** by solving problems from Leetcode."
+        echo "Each solution is documented to serve as both a **reference** and a **personal learning log**."
         echo
-        for topic in "${sorted[@]}"; do
-            echo "- [$topic](./$topic)"
-        done
-
+        echo "It is structured in a way that makes it easy to review, revisit, and expand my problem-solving knowledge over time."
+        echo
+        echo "## Repository Structure"
+        echo
+        echo "Organized by topic (e.g., \`arrays\`, \`graph\`, \`dp\`). Each problem is in a numbered folder with a slug:"
+        echo
+        echo "📁 \`arrays/\`"
+        echo "  ├── \`001_two_sum/\`"
+        echo "  │   ├── \`solution.cpp\`"
+        echo "  │   └── \`README.md\`"
+        echo
+        echo "## How to Add a New Problem"
+        echo "I created this script to help with documentation and repository organization. Here's how to use it:"
+        echo
+        echo "### 1. Make the script executable:"
+        echo '```bash'
+        echo "chmod +x add_problem.sh"
+        echo '```'
+        echo
+        echo "### 2. Run it:"
+        echo '```bash'
+        echo "./add_problem.sh"
+        echo '```'
+        echo
+        echo "It will prompt you for:"
+        echo "- Category (e.g., \`arrays/binarysearch\`)"
+        echo "- Problem title"
+        echo "- Difficulty (optional)"
+        echo
+        echo "It then creates a folder with:"
+        echo "- \`solution.cpp\`"
+        echo "- \`README.md\`"
+        echo "And updates all README files automatically."
         echo
         echo "## 📊 Difficulty Breakdown"
         echo
@@ -108,10 +136,10 @@ update_root_readme() {
     } > README.md
 }
 
-
-# ------------- Main -----------------
+# ---------------- Main ----------------
 
 read -p "Enter category (e.g., arrays/binarysearch): " category_path
+category_path=$(echo "$category_path" | tr '[:upper:]' '[:lower:]')
 read -p "Enter problem title: " title
 read -p "Enter difficulty (easy/medium/hard) [optional]: " difficulty
 
@@ -132,7 +160,7 @@ cat <<EOF > "$problem_path/solution.cpp"
 
 EOF
 
-# Create README.md of the problem
+# Create README.md
 cat <<EOF > "$problem_path/README.md"
 # $title
 
@@ -140,6 +168,7 @@ cat <<EOF > "$problem_path/README.md"
 - 🚦 Difficulty: $( [[ "$difficulty" == "easy" ]] && echo "🟢 Easy" || ([[ "$difficulty" == "medium" ]] && echo "🟡 Medium" || ([[ "$difficulty" == "hard" ]] && echo "🔴 Hard" || echo "(not specified)")) )
 
 ## 💡 Approach
+// notes about the solution, pseudocode, etc
 
 ## 🕒 Time and Space Complexity
 - Time: 
