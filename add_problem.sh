@@ -50,6 +50,7 @@ update_root_readme() {
     local rootPath="$(pwd)"
     local topics=()
 
+    # Collect all topic directories (excluding build, hidden, and problem folders)
     while IFS= read -r -d $'\0' dir; do
         topics+=("$dir")
     done < <(find "$rootPath" -maxdepth 1 -mindepth 1 -type d ! -name "build" ! -name ".*" ! -regex '.*/[0-9]{3}_.*' -print0)
@@ -57,34 +58,19 @@ update_root_readme() {
     IFS=$'\n' sorted=($(printf "%s\n" "${topics[@]}" | sort))
     unset IFS
 
+    # Initialize counters
     declare -A stats=( ["easy"]=0 ["medium"]=0 ["hard"]=0 ["unknown"]=0 )
 
-    for topic_path in "${sorted[@]}"; do
-        topic_name=$(basename "$topic_path")
-
-        while IFS= read -r -d $'\0' problem_dir; do
-            [[ -d "$problem_dir" ]] || continue
-
-            difficulty="unknown"
-            if [[ -f "$problem_dir/README.md" ]]; then
-                line=$(grep -i 'Difficulty:' "$problem_dir/README.md" | head -1)
-                if [[ $line =~ Easy ]]; then
-                    difficulty="easy"
-                elif [[ $line =~ Medium ]]; then
-                    difficulty="medium"
-                elif [[ $line =~ Hard ]]; then
-                    difficulty="hard"
-                fi
-            fi
-
-            ((stats[$difficulty]++))
-        done < <(find "$topic_path" -maxdepth 1 -mindepth 1 -type d -regex '.*/[0-9]{3}_.+' -print0)
-    done
-
-    local total=$((stats["easy"] + stats["medium"] + stats["hard"] + stats["unknown"]))
-
+    # Write main README
     {
         echo "# Leetcode Study Vault"
+        echo
+        echo "## Topics"
+        echo
+        for topic_path in "${sorted[@]}"; do
+            topic_name=$(basename "$topic_path")
+            echo "- [$topic_name](./$topic_name)"
+        done
         echo
         echo "## Purpose"
         echo "This repository was created as a way to deepen understanding of **algorithms** and **data structures** by solving problems from Leetcode."
@@ -95,11 +81,13 @@ update_root_readme() {
         echo "## Repository Structure"
         echo
         echo "Organized by topic (e.g., \`arrays\`, \`graph\`, \`dp\`). Each problem is in a numbered folder with a slug:"
-        echo
+        echo 
+        echo  '```'
         echo "📁 \`arrays/\`"
         echo "  ├── \`001_two_sum/\`"
         echo "  │   ├── \`solution.cpp\`"
         echo "  │   └── \`README.md\`"
+        echo '```'
         echo
         echo "## How to Add a New Problem"
         echo "I created this script to help with documentation and repository organization. Here's how to use it:"
@@ -124,6 +112,31 @@ update_root_readme() {
         echo "- \`README.md\`"
         echo "And updates all README files automatically."
         echo
+    } > README.md
+
+    # Count problems by difficulty
+    for topic_path in "${sorted[@]}"; do
+        while IFS= read -r -d $'\0' problem_dir; do
+            [[ -d "$problem_dir" ]] || continue
+            difficulty="unknown"
+            if [[ -f "$problem_dir/README.md" ]]; then
+                line=$(grep -i 'Difficulty:' "$problem_dir/README.md" | head -1)
+                if [[ $line =~ Easy ]]; then
+                    difficulty="easy"
+                elif [[ $line =~ Medium ]]; then
+                    difficulty="medium"
+                elif [[ $line =~ Hard ]]; then
+                    difficulty="hard"
+                fi
+            fi
+            ((stats[$difficulty]++))
+        done < <(find "$topic_path" -maxdepth 1 -mindepth 1 -type d -regex '.*/[0-9]{3}_.+' -print0)
+    done
+
+    local total=$((stats["easy"] + stats["medium"] + stats["hard"] + stats["unknown"]))
+
+    # Append Difficulty Breakdown
+    {
         echo "## 📊 Difficulty Breakdown"
         echo
         echo "| Difficulty | Count |"
@@ -133,7 +146,7 @@ update_root_readme() {
         echo "| 🔴 Hard    | ${stats["hard"]} |"
         echo "| ❔ Unknown | ${stats["unknown"]} |"
         echo "| **Total**  | $total |"
-    } > README.md
+    } >> README.md
 }
 
 # ---------------- Main ----------------
@@ -165,7 +178,7 @@ cat <<EOF > "$problem_path/README.md"
 # $title
 
 - 🧩 Problem link: [Leetcode](https://leetcode.com/problemset/all/)
-- 🚦 Difficulty: $( [[ "$difficulty" == "easy" ]] && echo "🟢 Easy" || ([[ "$difficulty" == "medium" ]] && echo "🟡 Medium" || ([[ "$difficulty" == "hard" ]] && echo "🔴 Hard" || echo "(not specified)")) )
+- 🚦 Difficulty: $( [[ "$difficulty" == "easy" ]] && echo "🟢 Easy" || ([[ "$difficulty" == "medium" ]] && echo "🟡 Medium" || ([[ "$difficulty" == "hard" ]] && echo "🔴 Hard" || echo "(not specified)")))
 
 ## 💡 Approach
 // notes about the solution, pseudocode, etc
