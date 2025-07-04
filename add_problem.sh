@@ -92,7 +92,7 @@ update_root_readme() {
         echo "  │   └── README.md"
         echo '```'
         echo
-        echo "## How to Add a New Problem"
+        echo "## Content Documentation: How to Add a New Problem"
         echo "I created this script to help with documentation and repository organization. Here's how to use it:"
         echo
         echo "#### 1. Make the script executable:"
@@ -115,6 +115,10 @@ update_root_readme() {
         echo "- \`README.md\`"
         echo "And updates all README files automatically."
         echo
+        echo "## Author info"
+        echo "[![Leetcode](https://img.shields.io/badge/Leetcode-yellow?logo=Leetcode&logoColor=white)](https://leetcode.com/u/shellyda-barbosa)"
+        echo "[![LinkedIn](https://img.shields.io/badge/LinkedIn-blue?logo=linkedin&logoColor=white)](https://linkedin.com/in/shellyda-barbosa)"
+        echo "> Made with dedication by [Shellyda](https://github.com/Shellyda)"
     } > README.md
 }
 
