@@ -18,6 +18,8 @@ Each solution is documented to serve as both a **reference** and a **personal le
 - [graphs](./graphs)
 - [linked_lists](./linked_lists)
 - [Questions](./Questions)
+- [recursion](./recursion)
+- [sorting](./sorting)
 
 ## Repository Structure
 
