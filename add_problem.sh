@@ -50,6 +50,8 @@ update_root_readme() {
     local rootPath="$(pwd)"
     local topics=()
 
+    problem_count=$(find . -type d -regex '.*/[0-9]{3}_.*' | wc -l)
+
     # Collect all topic directories (excluding build, hidden, and problem folders)
     while IFS= read -r -d $'\0' dir; do
         topics+=("$dir")
@@ -58,17 +60,21 @@ update_root_readme() {
     IFS=$'\n' sorted=($(printf "%s\n" "${topics[@]}" | sort))
     unset IFS
 
-    # Initialize counters
-    declare -A stats=( ["easy"]=0 ["medium"]=0 ["hard"]=0 ["unknown"]=0 )
-
     # Write main README
     {
         echo "# Leetcode Study Vault"
         echo
+        echo '<p align="center">'
+        echo '  <img src="https://img.shields.io/badge/Language-C++-blue.svg" />'
+        echo '  <img src="https://img.shields.io/badge/Leetcode-Study-yellow.svg" />'
+        echo "  <img src=\"https://img.shields.io/badge/Problems_Solved-${problem_count}-green\" />"
+        echo '  <img src="https://img.shields.io/badge/Automated_README-✔️-success" />'
+        echo '</p>'
+        echo
         echo "This repository was created as a way to deepen understanding of **algorithms** and **data structures** by solving problems from Leetcode."
         echo "Each solution is documented to serve as both a **reference** and a **personal learning log**."
         echo
-        echo "It is structured in a way that makes it easy to review, revisit, and expand my problem-solving knowledge over time."
+        echo "> It is structured in a way that makes it easy to review, revisit, and expand my problem-solving knowledge over time."
         echo
         echo "## Topics"
         echo
@@ -91,12 +97,12 @@ update_root_readme() {
         echo "## How to Add a New Problem"
         echo "I created this script to help with documentation and repository organization. Here's how to use it:"
         echo
-        echo "### 1. Make the script executable:"
+        echo "#### 1. Make the script executable:"
         echo '```bash'
         echo "chmod +x add_problem.sh"
         echo '```'
         echo
-        echo "### 2. Run it:"
+        echo "#### 2. Run it:"
         echo '```bash'
         echo "./add_problem.sh"
         echo '```'
