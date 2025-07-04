@@ -50,8 +50,6 @@ update_root_readme() {
     local rootPath="$(pwd)"
     local topics=()
 
-    problem_count=$(find . -type d -regex '.*/[0-9]{3}_.*' | wc -l)
-
     # Collect all topic directories (excluding build, hidden, and problem folders)
     while IFS= read -r -d $'\0' dir; do
         topics+=("$dir")
@@ -62,14 +60,14 @@ update_root_readme() {
 
     # Write main README
     {
-        echo "# Leetcode Study Vault"
         echo
-        echo '<p align="center">'
+        echo '<p align="left">'
         echo '  <img src="https://img.shields.io/badge/Language-C++-blue.svg" />'
         echo '  <img src="https://img.shields.io/badge/Leetcode-Study-yellow.svg" />'
-        echo "  <img src=\"https://img.shields.io/badge/Problems_Solved-${problem_count}-green\" />"
         echo '  <img src="https://img.shields.io/badge/Automated_README-✔️-success" />'
         echo '</p>'
+        echo
+        echo "# Leetcode Study Vault"
         echo
         echo "This repository was created as a way to deepen understanding of **algorithms** and **data structures** by solving problems from Leetcode."
         echo "Each solution is documented to serve as both a **reference** and a **personal learning log**."
