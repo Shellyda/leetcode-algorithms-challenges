@@ -1,6 +1,6 @@
 # Matrix Breath-First Search
 
-- 🧩 Problem link: [Neetcode](https://leetcode.com/problemset/all/)
+- 🧩 Problem link: [Neetcode](https://neetcode.io/problems/matrixBFS)
 - 🚦 Difficulty: 🟡 Medium
 
 ## Purpose
