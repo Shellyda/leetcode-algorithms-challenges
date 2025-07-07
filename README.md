@@ -15,6 +15,7 @@ Each solution is documented to serve as both a **reference** and a **personal le
 ## Topics
 
 - [arrays](./arrays)
+- [binary_search](./binary_search)
 - [graphs](./graphs)
 - [linked_lists](./linked_lists)
 - [Questions](./Questions)
