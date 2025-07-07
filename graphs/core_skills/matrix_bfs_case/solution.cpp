@@ -10,9 +10,7 @@ class Solution
 public:
     int shortestPath(vector<vector<int>> &grid)
     {
-        int res = bfs(grid);
-
-        return res < 0 ? -1 : res;
+        return bfs(grid);
     }
 
 private:
@@ -56,5 +54,7 @@ private:
             }
             length++;
         }
+
+        return -1;
     }
 };
