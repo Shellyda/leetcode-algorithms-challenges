@@ -2,4 +2,5 @@
 
 ## Subtopics
 
-- [Implementation of a stack with vector](./implementation_of_a_stack_with_vector)
+- [design_dynamic_array](./design_dynamic_array)
+- [implementation_of_a_stack_with_vector](./implementation_of_a_stack_with_vector)
