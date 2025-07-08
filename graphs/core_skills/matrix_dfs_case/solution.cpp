@@ -30,7 +30,7 @@ private:
             return 0;
 
         // invalid point or visited
-        if (grid[r][c] == 1 || visited[r][c])
+        if (grid[r][c] || visited[r][c])
             return 0;
 
         // found one path
