@@ -1,17 +1,34 @@
 # Recursive Binary Search
 
-- 🧩 Problem link: [Leetcode](https://leetcode.com/problemset/all/)
-- 🚦 Difficulty: 🟢 Easy
+## Purpose
 
-## 💡 Approach
-// notes about the solution, pseudocode, etc
+- Implement `binSearch` using recursion
 
 ## 🕒 Time and Space Complexity
-- Time: 
-- Space: 
+
+- Time: O(logn)
+- Space: O(logn)
 
 ## ✅ Solution
 
 ```cpp
-// your code here
+class Solution
+{
+public:
+    int binSearch(int l, int r, vector<int> &nums, int target)
+    {
+        if (l > r)
+            return -1;
+        int m = l + (r - l) / 2;
+
+        if (nums[m] == target)
+            return m;
+        return ((nums[m] < target) ? binSearch(m + 1, r, nums, target) : binSearch(l, m - 1, nums, target));
+    }
+
+    int search(vector<int> &nums, int target)
+    {
+        return binSearch(0, nums.size() - 1, nums, target);
+    }
+};
 ```

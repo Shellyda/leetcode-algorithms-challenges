@@ -21,6 +21,7 @@ Each solution is documented to serve as both a **reference** and a **personal le
 - [Questions](./Questions)
 - [recursion](./recursion)
 - [sorting](./sorting)
+- [trees](./trees)
 
 ## Repository Structure
 

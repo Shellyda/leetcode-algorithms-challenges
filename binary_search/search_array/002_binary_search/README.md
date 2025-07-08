@@ -1,17 +1,41 @@
 # Binary Search
 
-- 🧩 Problem link: [Leetcode](https://leetcode.com/problemset/all/)
+- 🧩 Problem link: [Leetcode](https://leetcode.com/problems/binary-search/description/)
 - 🚦 Difficulty: 🟢 Easy
 
 ## 💡 Approach
-// notes about the solution, pseudocode, etc
+
+- Apply the Binary Search concept
 
 ## 🕒 Time and Space Complexity
-- Time: 
-- Space: 
+
+- Time: O(logn)
+- Space: O(1)
 
 ## ✅ Solution
 
 ```cpp
-// your code here
+int binarySearch(vector<int> arr, int target)
+{
+    int l = 0, r = arr.size() - 1;
+
+    while (l <= r)
+    {
+        int mid = l + ((r - l) / 2);
+
+        if (target > arr[mid])
+        {
+            l = mid + 1;
+        }
+        else if (target < arr[mid])
+        {
+            r = mid - 1;
+        }
+        else
+        {
+            return mid;
+        }
+    }
+    return -1;
+}
 ```
