@@ -10,7 +10,7 @@ Design a directed Graph class.
 Your `Graph` class should support the following operations:
 
 - `Graph()` will initialize an empty directed graph.
-- void addEdge(int src, int dst) will add an edge from `src` to `dst` if it does not already exist. If either `src` or `dst` do not exist, add them to the graph.
+- `void addEdge(int src, int dst)` will add an edge from `src` to `dst` if it does not already exist. If either `src` or `dst` do not exist, add them to the graph.
 - `bool removeEdge(int src, int dst)` will remove the edge from src to dst if it exists. Return whether the edge was removed. Either `src` or `dst` may not exist in the graph.
 - `bool hasPath(int src, int dst)` will return whether there is a path from `src` to `dst`. Assume both `src` and `dst` exist in the graph.
 
