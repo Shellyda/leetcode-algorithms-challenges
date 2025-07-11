@@ -5,7 +5,7 @@
 
 ## 💡 Approach
 
-// notes about the solution, pseudocode, etc
+- Top-down -> "true dynamic programming"
 
 ## 🕒 Time and Space Complexity
 
