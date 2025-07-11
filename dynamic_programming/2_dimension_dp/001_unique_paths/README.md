@@ -52,7 +52,7 @@ private:
 };
 ```
 
-## 💡 Approach - Bottom-down (Memoization)
+## 💡 Approach - Top-down (Memoization)
 
 - Add a `memo` vector or use `grid` itself to cache results
 
