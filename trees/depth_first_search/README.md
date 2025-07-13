@@ -1,4 +1,4 @@
-# depth_first_search
+# Depth First Search
 
 ## Problems
 

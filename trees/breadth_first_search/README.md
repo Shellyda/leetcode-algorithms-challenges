@@ -1,4 +1,4 @@
-# breadth_first_search
+# Breadth First Search
 
 ## Problems
 

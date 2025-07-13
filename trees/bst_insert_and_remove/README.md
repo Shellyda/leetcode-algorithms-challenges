@@ -1,4 +1,4 @@
-# bst_insert_and_remove
+# Bst Insert And Remove
 
 ## Problems
 
