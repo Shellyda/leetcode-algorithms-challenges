@@ -1,6 +1,6 @@
-# core_skills
+# Core Skills
 
 ## Subtopics
 
-- [binary_tree](./binary_tree)
-- [bst_sets_and_maps](./bst_sets_and_maps)
+1. [Binary Tree](./binary_tree)
+2. [Design BST - Sets And Maps](./bst_sets_and_maps)

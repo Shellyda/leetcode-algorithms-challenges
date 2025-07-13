@@ -20,23 +20,25 @@ get_next_problem_number() {
 
 update_category_readme() {
     local category_path="$1"
-    echo "# $(basename "$category_path")" > "$category_path/README.md"
+    echo "# $(basename "$category_path" | sed -E 's/_/ /g' | awk '{ for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2)); print }')" > "$category_path/README.md"
     echo "" >> "$category_path/README.md"
     echo "## Problems" >> "$category_path/README.md"
     echo "" >> "$category_path/README.md"
 
     for dir in $(ls -1 "$category_path" | grep -E '^[0-9]{3}_.+' | sort); do
-        display_name=$(echo "$dir" | sed -E 's/^[0-9]{3}_//' | tr '_' ' ')
-        display_name="$(echo "$display_name" | awk '{ print toupper(substr($0,1,1)) tolower(substr($0,2)) }')"
-        echo "- [$display_name](./$dir)" >> "$category_path/README.md"
+        if [[ -d "$category_path/$dir" ]]; then
+            display_name=$(echo "$dir" | sed -E 's/^[0-9]{3}_//' | sed -E 's/_/ /g' | awk '{ for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2)); print }')
+            echo "- [$display_name](./$dir)" >> "$category_path/README.md"
+        fi
     done
 }
+
 
 update_parent_readme() {
     local category_path="$(dirname "$1")"
     [[ "$category_path" == "." ]] && return
 
-    echo "# $(basename "$category_path")" > "$category_path/README.md"
+    echo "# $(basename "$category_path" | sed -E 's/_/ /g' | awk '{ for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2)); print }')" > "$category_path/README.md"
     echo "" >> "$category_path/README.md"
     echo "## Subtopics" >> "$category_path/README.md"
     echo "" >> "$category_path/README.md"
@@ -44,7 +46,8 @@ update_parent_readme() {
     local index=1
     for dir in $(ls -1 "$category_path" | grep -vE '^[0-9]{3}_' | sort); do
         if [[ -d "$category_path/$dir" ]]; then
-            echo "$index. [$dir](./$dir/)" >> "$category_path/README.md"
+            display_name=$(echo "$dir" | sed -E 's/_/ /g' | awk '{ for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2)); print }')
+            echo "$index. [$display_name](./$dir)" >> "$category_path/README.md"
             ((index++))
         fi
     done
@@ -82,8 +85,9 @@ update_root_readme() {
         echo "## Topics"
         echo
         for topic_path in "${sorted[@]}"; do
-            topic_name=$(basename "$topic_path")
-            echo "- [$topic_name](./$topic_name)"
+            topic_dir=$(basename "$topic_path")
+            display_name=$(echo "$topic_dir" | sed -E 's/_/ /g' | awk '{ for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2)); print }')
+            echo "- [$display_name](./$topic_dir)"
         done
         echo
         echo "## Repository Structure"

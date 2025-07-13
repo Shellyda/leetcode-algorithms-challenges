@@ -14,16 +14,16 @@ Each solution is documented to serve as both a **reference** and a **personal le
 
 ## Topics
 
-- [arrays](./arrays)
-- [binary_search](./binary_search)
-- [bit_manipulation](./bit_manipulation)
-- [dynamic_programming](./dynamic_programming)
-- [graphs](./graphs)
-- [linked_lists](./linked_lists)
+- [Arrays](./arrays)
+- [Binary Search](./binary_search)
+- [Bit Manipulation](./bit_manipulation)
+- [Dynamic Programming](./dynamic_programming)
+- [Graphs](./graphs)
+- [Linked Lists](./linked_lists)
 - [Questions](./Questions)
-- [recursion](./recursion)
-- [sorting](./sorting)
-- [trees](./trees)
+- [Recursion](./recursion)
+- [Sorting](./sorting)
+- [Trees](./trees)
 
 ## Repository Structure
 

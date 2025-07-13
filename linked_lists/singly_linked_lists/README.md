@@ -1,4 +1,4 @@
-# singly_linked_lists
+# Singly Linked Lists
 
 ## Problems
 

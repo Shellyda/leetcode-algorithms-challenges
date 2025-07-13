@@ -1,4 +1,4 @@
-# search_array
+# Search Array
 
 ## Problems
 

@@ -1,5 +1,5 @@
-# core_skills
+# Core Skills
 
 ## Subtopics
 
-- [recursive_binary_search](./recursive_binary_search)
+- [Recursive Binary Search](./recursive_binary_search)

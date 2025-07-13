@@ -1,4 +1,4 @@
-# adjacency_list
+# Adjacent List
 
 ## Problems
 

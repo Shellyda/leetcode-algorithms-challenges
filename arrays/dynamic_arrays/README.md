@@ -1,4 +1,4 @@
-# dynamic_arrays
+# Dynamic Arrays
 
 ## Problems
 

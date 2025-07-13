@@ -1,8 +1,8 @@
-# graphs
+# Graphs
 
 ## Subtopics
 
-- [adjacency_list](./adjacency_list)
-- [core_skills](./core_skills)
-- [matrix_bfs](./matrix_bfs)
-- [matrix_dfs](./matrix_dfs)
+1. [Core Skills](./core_skills)
+2. [Matrix DFS](./matrix_dfs)
+3. [Matrix BFS](./matrix_bfs)
+4. [Adjacency List](./adjacency_list)

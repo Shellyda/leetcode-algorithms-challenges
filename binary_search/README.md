@@ -1,7 +1,7 @@
-# binary_search
+# Binary Search
 
 ## Subtopics
 
-- [core_skills](./core_skills)
-- [search_array](./search_array)
-- [search_range](./search_range)
+1. [Core Skills](./core_skills)
+2. [Search Array](./search_array)
+3. [Search Range](./search_range)

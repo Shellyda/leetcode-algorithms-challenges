@@ -1,4 +1,4 @@
-# doubly_linked_lists
+# Doubly Linked Lists
 
 ## Problems
 

@@ -1,9 +1,9 @@
-# core_skills
+# Core Skills
 
 ## Subtopics
 
-- [bucket_sort](./bucket_sort)
-- [design_merge_sort](./design_merge_sort)
-- [insertion_sort](./insertion_sort)
-- [merge_sort](./merge_sort)
-- [quick_sort](./quick_sort)
+1. [Insertion Sort](./insertion_sort)
+2. [Merge Sort](./merge_sort)
+3. [Design Merge Sort](./design_merge_sort)
+4. [Quick Sort](./quick_sort)
+5. [Bucket Sort](./bucket_sort)

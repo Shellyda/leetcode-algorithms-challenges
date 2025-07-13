@@ -1,4 +1,4 @@
-# Design Graph
+# Design Graph with Adjacent List
 
 - 🧩 Problem link: [Neetcode](https://neetcode.io/problems/graph)
 - 🚦 Difficulty: 🟡 Medium

@@ -1,4 +1,4 @@
-# search_range
+# Search Range
 
 ## Problems
 

@@ -1,8 +1,8 @@
-# core_skills
+# Core Skills
 
 ## Subtopics
 
-- [design_graph](./design_graph)
-- [graphs_representation](./graphs_representation)
-- [matrix_bfs_case](./matrix_bfs_case)
-- [matrix_dfs_case](./matrix_dfs_case)
+- [Design Graph](./design_graph)
+- [Graphs Representation](./graphs_representation)
+- [Matrix BFS case](./matrix_bfs_case)
+- [Matrix DFS case](./matrix_dfs_case)

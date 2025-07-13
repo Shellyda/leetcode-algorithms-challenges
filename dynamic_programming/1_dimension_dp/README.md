@@ -1,4 +1,4 @@
-# 1_dimension_dp
+# 1 Dimension Dp
 
 ## Problems
 

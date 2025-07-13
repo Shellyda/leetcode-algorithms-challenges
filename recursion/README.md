@@ -1,6 +1,6 @@
-# recursion
+# Recursion
 
 ## Subtopics
 
-- [one_branch](./one_branch)
-- [two_branch](./two_branch)
+1. [One Branch](./one_branch)
+2. [Two Branch](./two_branch)

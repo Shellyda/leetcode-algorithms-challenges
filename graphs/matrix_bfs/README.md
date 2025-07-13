@@ -1,4 +1,4 @@
-# matrix_bfs
+# Matrix BFS
 
 ## Problems
 

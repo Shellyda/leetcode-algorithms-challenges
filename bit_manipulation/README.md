@@ -1,4 +1,4 @@
-# bit_manipulation
+# Bit Manipulation
 
 ## Problems
 

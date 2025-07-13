@@ -1,4 +1,4 @@
-# matrix_dfs
+# Matrix DFS
 
 ## Problems
 
