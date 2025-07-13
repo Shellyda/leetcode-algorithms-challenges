@@ -16,6 +16,7 @@ Each solution is documented to serve as both a **reference** and a **personal le
 
 - [arrays](./arrays)
 - [binary_search](./binary_search)
+- [bit_manipulation](./bit_manipulation)
 - [dynamic_programming](./dynamic_programming)
 - [graphs](./graphs)
 - [linked_lists](./linked_lists)
