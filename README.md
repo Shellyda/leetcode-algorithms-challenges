@@ -15,6 +15,7 @@ Each solution is documented to serve as both a **reference** and a **personal le
 ## Topics
 
 - [Arrays](./arrays)
+- [Backtracking](./backtracking)
 - [Binary Search](./binary_search)
 - [Bit Manipulation](./bit_manipulation)
 - [Dynamic Programming](./dynamic_programming)
