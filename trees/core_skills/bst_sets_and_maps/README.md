@@ -1,5 +1,8 @@
 # Design a Binary Search Tree class - Sets and Maps
 
+- 🧩 Problem link: [Neetcode](https://neetcode.io/problems/binarySearchTree)
+- 🚦 Difficulty: 🟡 Medium
+
 You will design a Tree Map, which maps an integer `key` to an integer `value`. Your `Tree` class should support the following operations:
 
 - `TreeMap()` will initialize an binary search tree map.
