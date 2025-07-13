@@ -20,6 +20,8 @@ Each solution is documented to serve as both a **reference** and a **personal le
 - [Bit Manipulation](./bit_manipulation)
 - [Dynamic Programming](./dynamic_programming)
 - [Graphs](./graphs)
+- [Hashing](./hashing)
+- [Heap](./heap)
 - [Linked Lists](./linked_lists)
 - [Questions](./Questions)
 - [Recursion](./recursion)
