@@ -41,10 +41,15 @@ update_parent_readme() {
     echo "## Subtopics" >> "$category_path/README.md"
     echo "" >> "$category_path/README.md"
 
+    local index=1
     for dir in $(ls -1 "$category_path" | grep -vE '^[0-9]{3}_' | sort); do
-        [[ -d "$category_path/$dir" ]] && echo "- [$dir](./$dir)" >> "$category_path/README.md"
+        if [[ -d "$category_path/$dir" ]]; then
+            echo "$index. [$dir](./$dir/)" >> "$category_path/README.md"
+            ((index++))
+        fi
     done
 }
+
 
 update_root_readme() {
     local rootPath="$(pwd)"

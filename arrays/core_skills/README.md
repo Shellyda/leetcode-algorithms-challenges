@@ -1,6 +1,6 @@
-# core_skills
+# Core Skills
 
 ## Subtopics
 
-- [design_dynamic_array](./design_dynamic_array)
-- [implementation_of_a_stack_with_vector](./implementation_of_a_stack_with_vector)
+- [Design Dynamic Array](./design_dynamic_array)
+- [Implementation of a Stack with vector](./implementation_of_a_stack_with_vector)
