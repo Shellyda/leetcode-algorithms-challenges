@@ -84,11 +84,18 @@ update_root_readme() {
         echo
         echo "## Topics"
         echo
-        for topic_path in "${sorted[@]}"; do
-            topic_dir=$(basename "$topic_path")
-            display_name=$(echo "$topic_dir" | sed -E 's/_/ /g' | awk '{ for(i=1;i<=NF;i++) $i=toupper(substr($i,1,1)) tolower(substr($i,2)); print }')
-            echo "- [$display_name](./$topic_dir)"
-        done
+        echo "1. [Arrays](./arrays)
+              2. [Linked Lists](./linked_lists)
+              3. [Recursion](./recursion)
+              4. [Sorting](./sorting)
+              5. [Binary Search](./binary_search)
+              6. [Trees](./trees)
+              7. [Backtracking](./backtracking)
+              8. [Heap](./heap)
+              9. [Hashing](./hashing)
+              10. [Graphs](./graphs)
+              11. [Dynamic Programming](./dynamic_programming)
+              12. [Bit Manipulation](./bit_manipulation)"
         echo
         echo "## Repository Structure"
         echo
@@ -99,6 +106,7 @@ update_root_readme() {
         echo "  ├── 001_two_sum/"
         echo "  │   ├── solution.cpp"
         echo "  │   └── README.md"
+        echo "  └── README.md"
         echo '```'
         echo
         echo "## Content Documentation: How to Add a New Problem"
