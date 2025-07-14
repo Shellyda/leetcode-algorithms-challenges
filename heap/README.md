@@ -2,5 +2,6 @@
 
 ## Subtopics
 
-1. [Push And Pop](./push_and_pop)
-1. [Heapify](./heapify)
+1. [Core Skills](./core_skills)
+2. [Heapify](./heapify)
+3. [Push And Pop](./push_and_pop)
