@@ -14,18 +14,19 @@ Each solution is documented to serve as both a **reference** and a **personal le
 
 ## Topics
 
-1. [Arrays](./arrays)
-2. [Linked Lists](./linked_lists)
-3. [Recursion](./recursion)
-4. [Sorting](./sorting)
-5. [Binary Search](./binary_search)
-6. [Trees](./trees)
-7. [Backtracking](./backtracking)
-8. [Heap](./heap)
-9. [Hashing](./hashing)
-10. [Graphs](./graphs)
-11. [Dynamic Programming](./dynamic_programming)
-12. [Bit Manipulation](./bit_manipulation)
+- [Arrays](./arrays)
+- [Backtracking](./backtracking)
+- [Binary Search](./binary_search)
+- [Bit Manipulation](./bit_manipulation)
+- [Dynamic Programming](./dynamic_programming)
+- [Graphs](./graphs)
+- [Hashing](./hashing)
+- [Heap](./heap)
+- [Linked Lists](./linked_lists)
+- [Questions](./Questions)
+- [Recursion](./recursion)
+- [Sorting](./sorting)
+- [Trees](./trees)
 
 ## Repository Structure
 
