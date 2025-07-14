@@ -1,5 +1,7 @@
 # Backtracking
 
+- [Core Skills](./core_skills/)
+
 ## Problems
 
 - [Path Sum](./001_path_sum)
