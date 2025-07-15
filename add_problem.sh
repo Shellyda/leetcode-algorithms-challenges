@@ -186,6 +186,6 @@ EOF
 
 update_category_readme "$category_dir"
 update_parent_readme "$category_dir"
-update_root_readme
+# update_root_readme
 
 echo "✅ Created: $problem_path"
