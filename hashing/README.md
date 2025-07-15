@@ -1,6 +1,10 @@
 # Hashing
 
-## Subtopics
+- [Core Skills](./core_skills/)
 
-1. [Core Skills](./core_skills)
-2. [Hash Usage](./hash_usage)
+## Problems
+
+- [Contains Duplicate](./001_contains_duplicate)
+- [Two Sum](./002_two_sum)
+- [Lru Cache](./003_lru_cache)
+- [Group Anagrams](./004_group_anagrams)
