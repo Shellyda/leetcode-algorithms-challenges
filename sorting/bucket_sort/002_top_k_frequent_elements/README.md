@@ -1,6 +1,6 @@
 # Top K Frequent Elements
 
-- 🧩 Problem link: [Leetcode](hhttps://leetcode.com/problems/top-k-frequent-elements/description/)
+- 🧩 Problem link: [Leetcode](https://leetcode.com/problems/top-k-frequent-elements/description/)
 - 🚦 Difficulty: 🟡 Medium
 
 ## 💡 Approach
