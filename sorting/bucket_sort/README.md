@@ -1,5 +1,6 @@
-# bucket_sort
+# Bucket Sort
 
 ## Problems
 
-- [Sort colors](./001_sort_colors)
+- [Sort Colors](./001_sort_colors)
+- [Top K Frequent Elements](./002_top_k_frequent_elements)
