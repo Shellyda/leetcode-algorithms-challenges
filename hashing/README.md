@@ -8,3 +8,4 @@
 - [Two Sum](./002_two_sum)
 - [Lru Cache](./003_lru_cache)
 - [Group Anagrams](./004_group_anagrams)
+- [Longest Consecutive Sequence](./005_longest_consecutive_sequence)
