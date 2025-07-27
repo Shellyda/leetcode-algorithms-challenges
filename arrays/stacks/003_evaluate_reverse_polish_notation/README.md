@@ -74,5 +74,5 @@ private:
 
         return result;
     }
-}
+};
 ```
