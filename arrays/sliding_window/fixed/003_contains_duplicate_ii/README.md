@@ -46,6 +46,8 @@ bool closeDuplicatesBruteForce(vector<int> &nums, int k)
 - If not, insert it and keep moving.
 - If the loop finishes without finding duplicates, return `false`.
 
+![img](https://imagedelivery.net/CLfkmk9Wzy8_9HRyug4EVA/0aa36803-0e5b-4c57-ef92-c042f6f86b00/sharpen=1)
+
 ## 🕒 Time and Space Complexity
 
 - Time: O(n)
