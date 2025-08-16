@@ -1,6 +1,6 @@
 # Minimum Size Subarray Sum
 
-- 🧩 Problem link: [Leetcode](https://leetcode.com/problemset/all/)
+- 🧩 Problem link: [Leetcode](https://leetcode.com/problems/minimum-size-subarray-sum/)
 - 🚦 Difficulty: 🟡 Medium
 
 ## 💡 Approach
