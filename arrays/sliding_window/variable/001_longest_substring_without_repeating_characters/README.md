@@ -64,3 +64,60 @@ public:
     }
 };
 ```
+
+## 💡 Approach 02 - Sliding Window
+
+1. `r` expands the window to include the current character.
+2. If `s[r]` is already in the window, move `l` forward (removing characters) until `s[r]` is no longer duplicated.
+3. Insert `s[r]` into the set.
+4. Update `len` as the maximum window size `(r - l + 1)`.
+
+- After the loop, return the maximum length found.
+
+## 🕒 Time and Space Complexity
+
+- Time: O(n)
+- Space: O(min(n,m))
+
+> Where `n` is the length of the string and `m` is the total number of unique characters in the string
+
+```cpp
+/*
+ l = 0, len = INT_MIN
+ window = set()
+ for r in range(len(nums)):
+    while(window.count(nums[r]) > 0){
+        window.erase(nums[l]);
+        l++;
+    }
+    window.insert(nums[r]);
+    len = max(r - l + 1, len)
+*/
+
+class Solution
+{
+public:
+    int lengthOfLongestSubstring(string s)
+    {
+        if (s.size() == 1)
+            return 1;
+
+        int l = 0, len = INT_MIN;
+        unordered_set<char> window;
+
+        for (int r = 0; r < s.size(); r++)
+        {
+            while (window.count(s[r]) > 0)
+            {
+                window.erase(s[l]);
+                l++;
+            }
+
+            window.insert(s[r]);
+            len = max(r - l + 1, len);
+        }
+
+        return len != INT_MIN ? len : 0;
+    }
+};
+```
