@@ -18,7 +18,7 @@
 - Time: O(m \* n)
 - Space: O(1)
 
-> Where `m` is `operations.size()` and `n` is `arr.size()`
+> Where `n` is `operations.size()` and `m` is `arr.size()`
 
 ## ✅ Solution
 
