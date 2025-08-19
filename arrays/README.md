@@ -9,3 +9,4 @@
 5. [Kadane](./kadane)
 6. [Sliding Window](./sliding_window)
 7. [Two Pointers](./two_pointers)
+8. [Prefix Sums](./prefix_sums)
