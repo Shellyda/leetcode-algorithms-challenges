@@ -3,10 +3,10 @@
 ## Subtopics
 
 1. [Core Skills](./core_skills)
-2. [Static Arrays](./static_arrays)
-3. [Dynamic Arrays](./dynamic_arrays)
-4. [Stacks](./stacks)
-5. [Kadane](./kadane)
-6. [Sliding Window](./sliding_window)
-7. [Two Pointers](./two_pointers)
-8. [Prefix Sums](./prefix_sums)
+2. [Dynamic Arrays](./dynamic_arrays)
+3. [Kadane](./kadane)
+4. [Prefix Sums](./prefix_sums)
+5. [Sliding Window](./sliding_window)
+6. [Stacks](./stacks)
+7. [Static Arrays](./static_arrays)
+8. [Two Pointers](./two_pointers)
