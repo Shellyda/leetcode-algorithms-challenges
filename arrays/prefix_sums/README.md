@@ -5,3 +5,4 @@
 - [Range Sum Query Immutable](./001_range_sum_query_immutable)
 - [Product Of Array Except Self](./002_product_of_array_except_self)
 - [Find Pivot Index](./003_find_pivot_index)
+- [Range Sum Query 2d Immutable](./004_range_sum_query_2d_immutable)
