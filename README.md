@@ -12,6 +12,8 @@ Each solution is documented to serve as both a **reference** and a **personal le
 
 ## Topics
 
+All the topics organized in a logical order to study.
+ 
 1. [Arrays](./arrays)
 2. [Linked Lists](./linked_lists)
 3. [Recursion](./recursion)
@@ -24,6 +26,19 @@ Each solution is documented to serve as both a **reference** and a **personal le
 10. [Graphs](./graphs)
 11. [Dynamic Programming](./dynamic_programming)
 12. [Bit Manipulation](./bit_manipulation)
+
+## How to Study with This Repository
+
+1. **Start with Core Skills**  
+   - Each topic begins with **fundamental problems** where the goal is to learn/implement the algorithm or concept **from scratch**.  
+   - Example: Writing your own sorting algorithm instead of just using `std::sort`.
+
+2. **Move on to Practice Questions**  
+   - Once the concept is clear, continue with progressively harder problems.  
+   - These problems are numbered and organized, so you can follow them like a syllabus.
+
+3. **Review and Revisit**  
+   - Each folder has a `README.md` summarizing concepts and key takeaways.  
 
 ## Repository Structure
 
@@ -38,7 +53,7 @@ Organized by topic (e.g., `arrays`, `graph`, `dp`). Each problem is in a numbere
 
 ## Content Documentation: How to Add a New Problem
 
-I created this script to help with documentation and repository organization. Here's how to use it:
+This repo includes a helper script to standardize documentation:
 
 #### 1. Make the script executable:
 
