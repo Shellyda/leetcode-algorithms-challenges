@@ -23,6 +23,8 @@
 
    - If traversal ends because `fast` reaches `nullptr` (or `fast->next` is `nullptr`), it means the list has an end, so there’s **no cycle**.
 
+![img](https://imagedelivery.net/CLfkmk9Wzy8_9HRyug4EVA/9a01bace-4b54-4091-b6ea-e0d6bfd3f800/sharpen=1)
+
 ## 🕒 Time and Space Complexity
 
 - Time: O(n)
