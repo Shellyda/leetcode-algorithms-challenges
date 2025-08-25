@@ -1,7 +1,6 @@
 <p align="left">
   <img src="https://img.shields.io/badge/Language-C++-blue.svg" />
-  <img src="https://img.shields.io/badge/Leetcode-Study-yellow.svg" />
-  <img src="https://img.shields.io/badge/Automated_README-✔️-success" />
+  <img src="https://img.shields.io/badge/Leetcode-Study-blue.svg" />
 </p>
 
 # Leetcode Study Vault
