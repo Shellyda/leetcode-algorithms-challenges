@@ -31,10 +31,12 @@
 ## ✅ Solution
 
 ```cpp
-bool hasCycle(ListNode *head)
+class Solution
+{
+public:
+    bool hasCycle(ListNode *head)
     {
-        ListNode *fast = head;
-        ListNode *slow = head;
+        ListNode *fast = head, *slow = head;
 
         while (fast && fast->next)
         {
@@ -47,4 +49,5 @@ bool hasCycle(ListNode *head)
 
         return false;
     }
+};
 ```
