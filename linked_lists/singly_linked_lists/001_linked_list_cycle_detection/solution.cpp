@@ -11,23 +11,21 @@ struct ListNode
     ListNode(int x) : val(x), next(nullptr) {}
     ListNode(int x, ListNode *next) : val(x), next(next) {}
 };
-
-// Way better using always O(n) time
-
 class Solution
 {
 public:
     bool hasCycle(ListNode *head)
     {
-        ListNode *fast = head;
-        ListNode *slow = head;
+        vector<ListNode *> arr;
 
-        while (fast && fast->next)
+        while (head)
         {
-            fast = fast->next->next;
-            slow = slow->next;
+            arr.push_back(head);
+            head = head->next;
 
-            if (fast == slow)
+            bool exists = find(begin(arr), end(arr), head) != end(arr);
+
+            if (exists)
                 return true;
         }
 
