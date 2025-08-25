@@ -3,3 +3,4 @@
 ## Problems
 
 - [Middle Of The Linked List](./001_middle_of_the_linked_list)
+- [Maximum Twin Sum Of A Linked List](./002_maximum_twin_sum_of_a_linked_list)
