@@ -64,6 +64,37 @@ The visual below demonstrates a trie. Since there are 26 letters in the alphabet
 
 ![img](https://imagedelivery.net/CLfkmk9Wzy8_9HRyug4EVA/1cb7dc48-48a8-47be-c19f-3ffda3134800/sharpen=1)
 
+### Insert
+
+To insert into the trie, we can iterate through each character of the word we wish to insert. If the character does not exist, we can insert it into our hashmap, along with its children. Otherwise, we can keep traversing down the tree. Once we have reached the last character, we can mark that TrieNode as a word.
+
+> The visuals below represent the insertion process for words, "apple", "ape" and "nope". curr represents the current `TrieNode`, (in red circles) and `word`'s `boolean` value represents whether the word ends at a `TrieNode`.
+
+**1. Insert "Apple"**
+![img](https://imagedelivery.net/CLfkmk9Wzy8_9HRyug4EVA/b41ba89e-efd5-4974-4a2d-d46d064e7600/sharpen=1)
+
+**2. Insert "Ape"**
+![img](https://imagedelivery.net/CLfkmk9Wzy8_9HRyug4EVA/108ccf40-ecb2-4327-00ee-2ae7bb9c9600/sharpen=1)
+
+**3. Insert "Nope"**
+![img](https://imagedelivery.net/CLfkmk9Wzy8_9HRyug4EVA/268e1ed6-342c-431f-0510-48dfc9b1ba00/sharpen=1)
+
+### Search
+
+We can search whether a word exists and return a boolean. To do this, we will iterate through each character and as soon as we encounter a character that is not in our tree, we can return false. This makes sense because a word cannot be complete if one of the characters is missing. However, it can also be the case that every single character exists but the last character is not marked as a word. For example, if our prefix tree has the word "apple" and we are looking for the word "app", even though the prefix exists, the word itself does not exist, because `p`'s `word` attribute is `false`.
+
+**Search for word "No"**
+
+![img](https://imagedelivery.net/CLfkmk9Wzy8_9HRyug4EVA/9e22edaa-20c2-4413-ff5d-4fe279c11800/sharpen=1)
+
+### Starts With
+
+If we wanted to see if our tree contains a word given a prefix, we can use the following method. If each character of the prefix exists within our trie, we can return true. Otherwise, we will return false.
+
+**Starts With Prefix "No"**
+
+![img](https://imagedelivery.net/CLfkmk9Wzy8_9HRyug4EVA/c33a86f8-c1fb-49eb-a1eb-59497a6f3700/sharpen=1)
+
 ## ✅ Solution
 
 ```cpp
