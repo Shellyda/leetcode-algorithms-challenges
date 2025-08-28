@@ -36,10 +36,10 @@ Shipped = 2, Total = 3 → **Unshipped = 1**
 
 ## 🕒 Time and Space Complexity
 
-- Time: O(nlogn)
+- Time: O(n\*log n)
 - Space: O(1)
 
-## ✅ Solution
+## ✅ Solution 01
 
 ```cpp
 int getMinUnshippedParcels(vector<int> weights, int max_wt)
@@ -62,4 +62,45 @@ int getMinUnshippedParcels(vector<int> weights, int max_wt)
 
     return weights.size() - sent;
 }
+```
+
+## 💡 Approach 02 - Heap
+
+- All parcels are pushed into a **max-heap**, so the heaviest parcels are checked first.
+- While there is remaining capacity:
+
+  - If the heaviest parcel is **strictly less than the current capacity**, it is shipped and the capacity decreases by 1 (each shipment consumes exactly 1 unit of capacity, regardless of weight).
+  - Otherwise, the parcel is skipped.
+
+- Finally, the function returns the number of **unshipped parcels** = total parcels − shipped parcels.
+
+## 🕒 Time and Space Complexity
+
+- Time: O(n\*log n)
+- Space: O(n) extra memory
+
+## ✅ Solution 02
+
+```cpp
+int getMinUnshippedParcels(vector<int> weights, int max_wt)
+{
+   // heapify (build the max heap) -> O(n)
+    priority_queue<int> maxHeap(weights.begin(), weights.end());
+
+    int capacity = max_wt, sent = 0;
+
+    while (!maxHeap.empty() && capacity > 0) // runs n times
+    {
+        // top() operations -> O(1)
+        if (maxHeap.top() < capacity)
+        {
+            sent++;
+            capacity--;
+        }
+        // pop() operations -> O(log n)
+        maxHeap.pop();
+    }
+
+    return weights.size() - sent;
+};
 ```
