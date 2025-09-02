@@ -167,6 +167,7 @@ What if we are given a range that requires us to traverse down the tree? Well, w
 In the code above, we have three conditionals. Let's walk through cases under which each conditional would execute.
 
 **1. The base case**
+
 Suppose we are given a range query `[0,5]`. This is the best case scenario where the following piece of code would execute. We can immediately return the sum, which is `22`.
 
 ```cpp
@@ -192,6 +193,7 @@ In theses cases, we will execute the following line.
 ```
 
 **3. Range overlaps with right and left sub-tree**
+
 If we are given a range that does not exist in any node in our `right` or `left` subtree, it must be the case that it lies in both of the subtrees. An example is `[2,4]` as long as it is a valid range.
 
 ```cpp
