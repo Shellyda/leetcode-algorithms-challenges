@@ -10,3 +10,4 @@
 1. [Trie](./trie)
 1. [Union Find](./union_find)
 1. [Segment Tree](./segment_tree)
+1. [Iterative Dfs](./iterative_dfs)
