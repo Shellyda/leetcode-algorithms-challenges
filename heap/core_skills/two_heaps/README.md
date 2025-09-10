@@ -188,6 +188,16 @@ public:
             small.pop();
         }
 
+        // ALSO - can do this instead lines above
+        // check if the curr num should be in large heap or in small heap from beginning
+
+        // if (!large.empty() && num > large.top()) {
+        //     large.push(num);
+        // } else {
+        //     small.push(num);
+        // }
+
+        // Balancing heaps
         if (small.size() > large.size() + 1)
         {
             large.push(small.top());
