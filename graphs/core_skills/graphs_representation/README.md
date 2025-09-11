@@ -20,7 +20,8 @@ int grid[4][4] = {
 };
 ```
 
-How can this be used to represent a graph? As we mentioned, graphs are abstract and can be defined in many ways. Let's say that all of the `0`'s in our grid are vertices. To traverse a graph, we are allowed to move up, down, left and right. If we are to connect the `0`s together, using our edges, we would end up getting a bunch of connected zeroes, which are connected components, and that denotes a graph. We shall discuss matrix traversal in the next chapter.
+How can this be used to represent a graph? As we mentioned, graphs are abstract and can be defined in many ways. Let's say that all of the `0`'s in our grid are vertices. To traverse a graph, we are allowed to move up, down, left and right. If we are to connect the `0`s together, using our edges, we would end up getting a bunch of connected zeroes, which are connected components, and that denotes a graph.
+
 ![hello](https://imagedelivery.net/CLfkmk9Wzy8_9HRyug4EVA/f3c04f37-7656-4836-f263-3ae19258c100/sharpen=1)
 
 **The space complexity of a matrix is *O*(*n*∗*m*) where n*n* is the number of rows and m*m* is the number of columns.**
@@ -61,6 +62,7 @@ adjMatrix[v2][v1] = 0;
 ```
 
 **To actualize the above adjacency matrix, we can look at the following visual.**
+
 ![hello](https://imagedelivery.net/CLfkmk9Wzy8_9HRyug4EVA/02f2aedd-88d5-461d-9fdd-0bffc2e81400/sharpen=1)
 
 **The issue with this is that if our graph has few edges it is not a good use of memory. Because it is a square matrix, the space complexity is *O*(*V^*2), where V is the number of vertices.**
