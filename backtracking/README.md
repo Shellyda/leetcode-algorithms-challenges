@@ -7,3 +7,4 @@
 - [Combination Sum](./003_combination_sum)
 - [Subsets Ii](./004_subsets_ii)
 - [Combinations](./005_combinations)
+- [Permutations](./006_permutations)
