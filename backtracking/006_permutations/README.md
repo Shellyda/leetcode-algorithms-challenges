@@ -49,7 +49,7 @@ vector<vector<int>> permutationsIterative(vector<int>& nums) {
 }
 ```
 
-> A visualization of how we build up the iterative solution. The different colors are used to denote that at each iteration, we have a new copy of `p` and that we are not using the same copy throughout.
+> A visualization of how we build up the iterative solution. The different colors are used to denote that at each iteration, we have a new copy of `p` and that we are not using the same copy throughout
 
 ![img](https://imagedelivery.net/CLfkmk9Wzy8_9HRyug4EVA/25f55629-12b9-4743-575d-bc5bee0b0300/sharpen=1)
 
