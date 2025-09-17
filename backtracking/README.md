@@ -8,3 +8,4 @@
 - [Subsets Ii](./004_subsets_ii)
 - [Combinations](./005_combinations)
 - [Permutations](./006_permutations)
+- [Permutation Ii](./007_permutation_ii)

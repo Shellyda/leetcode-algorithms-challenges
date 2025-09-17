@@ -25,6 +25,34 @@ The image below demonstrates how we can generate permutations for all numbers wh
 
 The total number of permutations we can generate is `4∗3∗2∗1=4!=24`. In general, the number of permutations we can generate is `n!` where `n` is the number of elements in the list.
 
+### Iterative Solution
+
+In the iterative solution, instead of performing the recursive call, we will just loop through `nums`, `for n in nums`. Toward the end of each `perms` loop, we can update our `perms` to be `nextPerms` so that we are not creating the same copy at each iteration.
+
+```cpp
+// Time: O(n^2 * n!)
+vector<vector<int>> permutationsIterative(vector<int>& nums) {
+    vector<vector<int>> perms = {{}};
+
+    for (int n : nums) {
+        vector<vector<int>> nextPerms;
+        for (vector<int> p : perms) {
+            for (int i = 0; i < p.size() + 1; i++) {
+                vector<int> pCopy(p);
+                pCopy.insert(pCopy.begin() + i, n);
+                nextPerms.push_back(pCopy);
+            }
+        }
+        perms = nextPerms;
+    }
+    return perms;
+}
+```
+
+> A visualization of how we build up the iterative solution. The different colors are used to denote that at each iteration, we have a new copy of `p` and that we are not using the same copy throughout.
+
+![img](https://imagedelivery.net/CLfkmk9Wzy8_9HRyug4EVA/25f55629-12b9-4743-575d-bc5bee0b0300/sharpen=1)
+
 ## 💡 Approach
 
 Let's think of how the problem can be broken down into subproblems.
