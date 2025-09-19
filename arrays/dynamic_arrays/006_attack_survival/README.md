@@ -1,7 +1,7 @@
 # C - Attack Survival
 
 - 🧩 Problem link: [AtCoder Beginner Contest 141](https://atcoder.jp/contests/abc141/submissions/69443014)
-- 🚦 Difficulty: 🟢 Easy
+- 🚦 Difficulty: 🟡 Medium
 
 ## 💡 Approach
 
