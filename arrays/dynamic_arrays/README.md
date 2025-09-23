@@ -8,3 +8,4 @@
 - [Product Of Array Except Self](./004_product_of_array_except_self)
 - [Find Minimum Sum](./005_find_minimum_sum)
 - [Attack Survival](./006_attack_survival)
+- [Interesting Drink](./007_interesting_drink)
