@@ -7,3 +7,4 @@
 - [Construct Binary Tree From Preorder And Inorder Traversal](./003_construct_binary_tree_from_preorder_and_inorder_traversal)
 - [Invert A Binary Tree](./004_invert_a_binary_tree)
 - [Same Tree](./005_same_tree)
+- [Maximum Depth Of Binary Tree](./006_maximum_depth_of_binary_tree)
