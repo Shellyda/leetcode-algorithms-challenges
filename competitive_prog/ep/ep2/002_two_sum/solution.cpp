@@ -9,7 +9,7 @@ public:
         unordered_map<int, int> indices;
         indices.reserve(nums.size() * 2);
 
-        for (int i = 0; i < (int)nums.size(); ++i)
+        for (int i = 0; i < nums.size(); ++i)
         {
             int need = target - nums[i];
             auto it = indices.find(need);
@@ -39,17 +39,13 @@ int main()
         nums.push_back(num);
     }
 
-    // sort(nums.begin(), nums.end());
     result = s.twoSum(nums, target);
 
     if (!result.empty())
     {
-        for (int i = 0; i < result.size(); i++)
+        for (int n : result)
         {
-            if (i != result.size() - 1)
-                cout << result[i] << " ";
-            else
-                cout << result[i];
+            cout << n << " ";
         }
     }
     else
