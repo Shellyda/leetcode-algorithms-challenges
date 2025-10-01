@@ -1,5 +1,5 @@
 # Le
 
-## Problems
+## Subtopics
 
-- [Le2](./le2)
+1. [Le2](./le2)
