@@ -1,63 +1,77 @@
-#include <iostream>
-#include <vector>
+#include <bits/stdc++.h>
 using namespace std;
-
-// Definition for a Pair
-class Pair
+class SegmentTree
 {
-public:
-    int key;
-    string value;
+    vector<int> tree;
+    int n;
 
-    Pair(int key, string value) : key(key), value(value) {}
-};
-
-class Solution
-{
 public:
-    vector<Pair> mergeSort(vector<Pair> &pairs)
+    SegmentTree(const vector<int> &nums)
     {
-        if (pairs.size() <= 1)
-            return pairs;
+        n = nums.size();
+        tree.resize(2 * n);
 
-        int m = (pairs.size() - 1) / 2;
+        for (int i = 0; i < n; ++i)
+            tree[n + i] = nums[i];
 
-        vector<Pair> left = {pairs.begin() + 0, pairs.begin() + m + 1};
-        vector<Pair> right = {pairs.begin() + m + 1, pairs.begin() + pairs.size()};
-
-        mergeSort(left);
-        mergeSort(right);
-
-        merge(pairs, left, right);
-
-        return pairs;
+        for (int i = n - 1; i > 0; --i)
+            tree[i] = min(tree[2 * i], tree[2 * i + 1]);
     }
 
-    void merge(vector<Pair> &pairs, vector<Pair> left, vector<Pair> right)
+    void update(int pos, int value)
     {
-        int i = 0, k = 0, j = 0;
+        pos += n;
+        tree[pos] = value;
+        for (pos /= 2; pos > 0; pos /= 2)
+            tree[pos] = min(tree[2 * pos], tree[2 * pos + 1]);
+    }
 
-        while (i < left.size() && j < right.size())
+    int rangeMin(int l, int r)
+    {
+        l += n;
+        r += n;
+        int res = INT_MAX;
+        while (l < r)
         {
-            if (left[i].key <= right[j].key)
+            if (l % 2 == 1)
             {
-                pairs[k] = left[i++];
+                res = min(res, tree[l]);
+                l++;
             }
-            else
+            if (r % 2 == 1)
             {
-                pairs[k] = right[j++];
+                r--;
+                res = min(res, tree[r]);
             }
-            k++;
+            l /= 2;
+            r /= 2;
         }
-
-        while (i < left.size())
-        {
-            pairs[k++] = left[i++];
-        }
-
-        while (j < right.size())
-        {
-            pairs[k++] = right[j++];
-        }
+        return res;
     }
 };
+
+int main()
+{
+    int n, q;
+    cin >> n >> q;
+    vector<int> nums(n);
+    for (int i = 0; i < n; i++)
+        cin >> nums[i];
+
+    SegmentTree segTree(nums);
+
+    while (q--)
+    {
+        int type, start, end;
+        cin >> type >> start >> end;
+        if (type == 2)
+        {
+            cout << segTree.rangeMin(start, end) << endl;
+        }
+        else
+        {
+            segTree.update(start - 1, end);
+        }
+    }
+    return 0;
+}
