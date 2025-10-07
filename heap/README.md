@@ -9,3 +9,4 @@
 - [Design Twitter](./005_design_twitter)
 - [Get Minimum Unshipped Parcels](./006_get_minimum_unshipped_parcels)
 - [Sliding Window Median](./007_sliding_window_median)
+- [Take Gifts From The Richest Pile](./008_take_gifts_from_the_richest_pile)
