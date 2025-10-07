@@ -1,77 +1,63 @@
-#include <bits/stdc++.h>
+#include <iostream>
+#include <vector>
 using namespace std;
-class SegmentTree
+
+// Definition for a Pair
+class Pair
 {
-    vector<int> tree;
-    int n;
-
 public:
-    SegmentTree(const vector<int> &nums)
-    {
-        n = nums.size();
-        tree.resize(2 * n);
+    int key;
+    string value;
 
-        for (int i = 0; i < n; ++i)
-            tree[n + i] = nums[i];
-
-        for (int i = n - 1; i > 0; --i)
-            tree[i] = min(tree[2 * i], tree[2 * i + 1]);
-    }
-
-    void update(int pos, int value)
-    {
-        pos += n;
-        tree[pos] = value;
-        for (pos /= 2; pos > 0; pos /= 2)
-            tree[pos] = min(tree[2 * pos], tree[2 * pos + 1]);
-    }
-
-    int rangeMin(int l, int r)
-    {
-        l += n;
-        r += n;
-        int res = INT_MAX;
-        while (l < r)
-        {
-            if (l % 2 == 1)
-            {
-                res = min(res, tree[l]);
-                l++;
-            }
-            if (r % 2 == 1)
-            {
-                r--;
-                res = min(res, tree[r]);
-            }
-            l /= 2;
-            r /= 2;
-        }
-        return res;
-    }
+    Pair(int key, string value) : key(key), value(value) {}
 };
 
-int main()
+class Solution
 {
-    int n, q;
-    cin >> n >> q;
-    vector<int> nums(n);
-    for (int i = 0; i < n; i++)
-        cin >> nums[i];
-
-    SegmentTree segTree(nums);
-
-    while (q--)
+public:
+    vector<Pair> mergeSort(vector<Pair> &pairs)
     {
-        int type, start, end;
-        cin >> type >> start >> end;
-        if (type == 2)
+        if (pairs.size() <= 1)
+            return pairs;
+
+        int m = (pairs.size() - 1) / 2;
+
+        vector<Pair> left = {pairs.begin() + 0, pairs.begin() + m + 1};
+        vector<Pair> right = {pairs.begin() + m + 1, pairs.begin() + pairs.size()};
+
+        mergeSort(left);
+        mergeSort(right);
+
+        merge(pairs, left, right);
+
+        return pairs;
+    }
+
+    void merge(vector<Pair> &pairs, vector<Pair> left, vector<Pair> right)
+    {
+        int i = 0, k = 0, j = 0;
+
+        while (i < left.size() && j < right.size())
         {
-            cout << segTree.rangeMin(start, end) << endl;
+            if (left[i].key <= right[j].key)
+            {
+                pairs[k] = left[i++];
+            }
+            else
+            {
+                pairs[k] = right[j++];
+            }
+            k++;
         }
-        else
+
+        while (i < left.size())
         {
-            segTree.update(start - 1, end);
+            pairs[k++] = left[i++];
+        }
+
+        while (j < right.size())
+        {
+            pairs[k++] = right[j++];
         }
     }
-    return 0;
-}
+};

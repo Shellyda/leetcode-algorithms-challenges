@@ -28,9 +28,19 @@ public:
 
     int rangeMin(int l, int r)
     {
-        vector<int> curWin = {tree.begin() + l, tree.begin() + r};
-        priority_queue<int, vector<int>, greater<int>> minHeap(curWin.begin(), curWin.end());
-        return minHeap.top();
+        int res = INT_MAX;
+        l += n;
+        r += n;
+        while (l < r)
+        {
+            if (l % 2)
+                res = min(res, tree[l++]);
+            if (r % 2)
+                res = min(res, tree[--r]);
+            l /= 2;
+            r /= 2;
+        }
+        return res;
     }
 };
 
@@ -50,7 +60,14 @@ int main()
         cin >> type >> start >> end;
         if (type == 2)
         {
-            cout << segTree.rangeMin(start, end) << endl;
+            if (start == end)
+            {
+                cout << segTree.rangeMin(start - 1, start) << endl;
+            }
+            else
+            {
+                cout << segTree.rangeMin(start - 1, end) << endl;
+            }
         }
         else
         {
