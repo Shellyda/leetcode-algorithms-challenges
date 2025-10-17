@@ -6,7 +6,7 @@ map<pair<int, int>, vector<int>> chosenTracks;
 
 int dfs(int i, vector<int> &tracks, int capacity)
 {
-    if (i == (int)tracks.size() || capacity == 0)
+    if (i == tracks.size() || capacity == 0)
         return 0;
 
     auto key = make_pair(i, capacity);
